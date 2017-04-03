@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170403160205) do
+ActiveRecord::Schema.define(version: 20170403181745) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "user_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170403160205) do
     t.integer "category_id"
     t.integer "inventory"
     t.decimal "price",       precision: 10, scale: 2
+    t.string  "title"
   end
 
   create_table "line_items", force: :cascade do |t|
