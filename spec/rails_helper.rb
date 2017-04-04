@@ -33,6 +33,11 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :truncation
   end
 
+  config.before(:each) do
+    Item.create([{ title: 'toothbrush', price: 2.00 }, { title: 'coffee', price: 3.00 }])
+    User.create([{ email: 'bob@bobsemail', password: 'password1' }, { email: 'steve@bobsemail', password: 'password2'}])
+  end
+
   config.after(:each) do
     DatabaseCleaner.clean
   end
