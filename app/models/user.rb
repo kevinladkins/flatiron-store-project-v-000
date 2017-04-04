@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   attr_accessor :current_cart
 
   def current_cart=(cart)
+    binding.pry
     self.update(current_cart_id: cart.id)
   end
 
