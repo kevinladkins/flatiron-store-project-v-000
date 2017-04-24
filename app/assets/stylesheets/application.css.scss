@@ -24,6 +24,15 @@ body {
   padding-bottom: 30px;
 }
 
+nav {
+  border: 1px solid black;
+}
+
+/*#user {
+  display: inline;
+  float: right;
+} */
+
 .theme-dropdown .dropdown-menu {
   position: static;
   display: block;

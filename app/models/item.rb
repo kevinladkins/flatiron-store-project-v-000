@@ -6,5 +6,9 @@ class Item < ActiveRecord::Base
   def self.available_items
     all.where("inventory > ?", 0)
   end
+  
+  def display_price
+    self.price.to_f/100
+  end
 
 end

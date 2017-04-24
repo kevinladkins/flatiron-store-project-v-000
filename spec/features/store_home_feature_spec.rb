@@ -15,6 +15,12 @@ describe 'Feature Test: Store', :type => :feature do
         second_item = Item.second
         second_item.inventory = 0
         second_item.save
+        item_11 = Item.find(11)
+        item_11.inventory = 1
+        item_11.save
+        item_12 = Item.find(12)
+        item_12.inventory = 1
+        item_12.save
         visit store_path
         Item.all.each do |item|
           if item == second_item

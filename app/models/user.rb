@@ -3,18 +3,28 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable
 
   has_many :carts
-  attr_accessor :current_cart
+  belongs_to :current_cart, class_name: 'Cart'
+  #attr_accessor :current_cart
 
-  def current_cart=(cart)
-    binding.pry
-    self.update(current_cart_id: cart.id)
+  #def current_cart=(cart)
+  #  self.update(current_cart_id: cart.id)
+  #end
+
+  def clear_current_cart
+    current_cart.line_items.each do |li|
+      item = Item.find(li.item_id)
+      item.inventory = item.inventory - li.quantity
+      item.save
+      li.destroy
+    end
+    self.update(current_cart: nil)
   end
 
-  def current_cart
-    if current_cart_id
-    Cart.find(current_cart_id)
-   end
-  end
+  #def current_cart
+  #  if current_cart_id
+  #  Cart.find(current_cart_id)
+  #end
+  #end
 
 
 
