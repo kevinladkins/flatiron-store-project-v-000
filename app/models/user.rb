@@ -4,11 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :carts
   belongs_to :current_cart, class_name: 'Cart'
-  #attr_accessor :current_cart
-
-  #def current_cart=(cart)
-  #  self.update(current_cart_id: cart.id)
-  #end
+ 
 
   def clear_current_cart
     current_cart.line_items.each do |li|
@@ -19,14 +15,6 @@ class User < ActiveRecord::Base
     end
     self.update(current_cart: nil)
   end
-
-  #def current_cart
-  #  if current_cart_id
-  #  Cart.find(current_cart_id)
-  #end
-  #end
-
-
 
 
 end

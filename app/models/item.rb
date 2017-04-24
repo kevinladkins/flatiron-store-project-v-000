@@ -10,5 +10,9 @@ class Item < ActiveRecord::Base
   def display_price
     self.price.to_f/100
   end
+  
+  def inventory_low?
+    self.inventory < 5
+  end
 
 end

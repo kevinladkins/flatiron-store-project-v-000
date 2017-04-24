@@ -2,6 +2,8 @@ class Cart < ActiveRecord::Base
   belongs_to :user
   has_many :line_items
   has_many :items, through: :line_items
+  
+  enum status: {unsubmitted: 0, submitted: 1}
 
   def total
     total = 0
@@ -18,4 +20,13 @@ class Cart < ActiveRecord::Base
       line_item = line_items.build(item_id: item_id)
     end
   end
+  
+  def display_total
+    total.to_f/100
+  end
+  
+  
+  
 end
+
+

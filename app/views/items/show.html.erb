@@ -1,2 +1,3 @@
 <h1><%= @item.title %></h1>
 <h2><%= price(@item) %></h2>
+<%= render partial: 'items/add_item_button', locals: {item: @item} %>
